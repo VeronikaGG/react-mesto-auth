@@ -1,0 +1,17 @@
+.content__section {
+  max-width: 880px;
+  margin: auto;
+}
+
+@media screen and (max-width: 1100px) {
+  .content__section {
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .content__section {
+    padding-left: 19px;
+    padding-right: 19px;
+  }
+}

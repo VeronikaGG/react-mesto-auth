@@ -1,0 +1,6 @@
+.popup__input_type_login {
+    min-width: 358px;
+    border-bottom: 2px solid #CCC;
+    background-color: transparent;
+    color: #fff;
+}

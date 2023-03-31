@@ -1,0 +1,16 @@
+.profile__pen-avatar {
+  width: 26px;
+  height: 26px;
+  position: absolute;
+  top: calc(50% - 113px);
+  left: calc(50% - 113px);
+  display: flex;
+  padding: 100px;
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  transition: 0.5s;
+}
+.profile__pen-avatar:hover {
+  opacity: 1;
+  cursor: pointer;
+}
