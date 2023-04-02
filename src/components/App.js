@@ -34,7 +34,7 @@ function App() {
   const navigate = useNavigate();
   const [isOpenInfoTooltip, setIsOpenInfoTooltip] = React.useState(false);
   const [responseInfo, setResponseInfo] = React.useState(false);
-  // const [loading, setloading] = React.useState(true);
+  // const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
     loggedIn &&
@@ -47,7 +47,7 @@ function App() {
           console.log(err);
         });
     // .finally(() => {
-    //   setloading(false);
+    //   setLoading(false);
     // });
   }, [loggedIn]);
 
@@ -120,7 +120,7 @@ function App() {
         console.error(err);
       });
     // .finally(() => {
-    //   setloading(false);
+    //   setLoading(false);
     // });
   }
   //вход в профиль
@@ -141,16 +141,8 @@ function App() {
         console.error(err);
       });
     // .finally(() => {
-    //   setloading(false);
+    //   setLoading(false);
     // });
-  }
-
-  //выход из профиля
-  function handleSignOut() {
-    localStorage.removeItem('token');
-    setUserEmail('');
-    navigate('/sign-up', { replace: true });
-    setLoggedIn(false);
   }
 
   //лайки карточек
@@ -234,6 +226,14 @@ function App() {
   // if (loading) {
   //   return 'Идет загрузка...';
   // }
+
+  //выход из профиля
+  function handleSignOut() {
+    localStorage.removeItem('token');
+    setUserEmail('');
+    navigate('/sign-up', { replace: true });
+    setLoggedIn(false);
+  }
 
   return (
     <div className="page">
