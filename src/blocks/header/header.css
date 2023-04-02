@@ -5,7 +5,6 @@
   border-bottom: 1px solid rgba(84, 84, 84, 0.7);
   display: flex;
   justify-content: space-between;
-
 }
 @media screen and (max-width: 1100px) {
   .header {
@@ -17,5 +16,6 @@
     min-width: 320px;
     min-height: 56px;
     margin: 0;
+    flex-direction: column-reverse;
   }
 }

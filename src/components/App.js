@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import Header from './Header.js';
 import Main from './Main.js';
 import Footer from './Footer.js';
@@ -34,7 +34,7 @@ function App() {
   const navigate = useNavigate();
   const [isOpenInfoTooltip, setIsOpenInfoTooltip] = React.useState(false);
   const [responseInfo, setResponseInfo] = React.useState(false);
-  const [loading, setloading] = React.useState(true);
+  // const [loading, setloading] = React.useState(true);
 
   React.useEffect(() => {
     loggedIn &&
@@ -45,10 +45,10 @@ function App() {
         })
         .catch((err) => {
           console.log(err);
-        })
-        .finally(() => {
-          setloading(false);
         });
+    // .finally(() => {
+    //   setloading(false);
+    // });
   }, [loggedIn]);
 
   const isOpen =
@@ -119,6 +119,9 @@ function App() {
         setIsOpenInfoTooltip(true);
         console.error(err);
       });
+    // .finally(() => {
+    //   setloading(false);
+    // });
   }
   //вход в профиль
   function handleLogin(formData) {
@@ -136,16 +139,18 @@ function App() {
         setIsOpenInfoTooltip(true);
         setResponseInfo(false);
         console.error(err);
-      })
-      .finally(() => {
-        setloading(false);
       });
+    // .finally(() => {
+    //   setloading(false);
+    // });
   }
 
   //выход из профиля
   function handleSignOut() {
     localStorage.removeItem('token');
-    navigate('/sign-in', { replace: true });
+    setUserEmail('');
+    navigate('/sign-up', { replace: true });
+    setLoggedIn(false);
   }
 
   //лайки карточек
@@ -226,15 +231,16 @@ function App() {
       });
   }
 
-  if (loading) {
-    return 'Идет загрузка...';
-  }
+  // if (loading) {
+  //   return 'Идет загрузка...';
+  // }
 
   return (
     <div className="page">
       <CurrentUserContext.Provider value={currentUser}>
         <Header loggedIn={loggedIn} userEmail={userEmail} onSignOut={handleSignOut} />
         <Routes>
+          <Route path="/" element={loggedIn ? <Navigate to="/main" replace /> : <Navigate to="/sign-in" replace />} />
           <Route
             path="/main"
             element={
