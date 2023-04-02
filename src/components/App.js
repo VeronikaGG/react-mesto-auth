@@ -118,10 +118,10 @@ function App() {
         setResponseInfo(false);
         setIsOpenInfoTooltip(true);
         console.error(err);
+      })
+      .finally(() => {
+        setIsOpenInfoTooltip(true);
       });
-    // .finally(() => {
-    //   setLoading(false);
-    // });
   }
   //вход в профиль
   function handleLogin(formData) {

@@ -75,7 +75,7 @@
 @import url(./blocks/header/__auth/header__auth-logout.css);
 @import url(./blocks/popup/__content/popup__content-tooltip.css);
 @import url(./blocks/popup/__title/popup__title-tooltip.css);
-
+@import url(./blocks/root/root.css);
 /* * {
   outline: red solid 1px;
 } */
