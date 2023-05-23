@@ -35,19 +35,18 @@ class Auth {
       });
   }
 
-  checkToken() {
+  checkToken(token) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
+        Authorization: `Bearer ${token}`,
       },
     })
       .then(this._getResponse)
-      .then((data) => data);
   }
 }
 
 export const auth = new Auth({
-  baseUrl: 'https://auth.nomoreparties.co',
+  baseUrl: 'https://api.veronikagg.student.nomoredomains.monster',
 });
