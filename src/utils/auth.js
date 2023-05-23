@@ -22,17 +22,21 @@ class Auth {
   login(email, password) {
     return fetch(`${this._baseUrl}/signin`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: email, password: password }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
     })
       .then(this._getResponse)
       .then((data) => {
-        console.log('Data received:', data);
         if (data.token) {
-          localStorage.setItem('token', data.token);
+          localStorage.setItem('jwt', data.token);
           return data;
         }
-      });
+      })
   }
 
   checkToken(token) {
