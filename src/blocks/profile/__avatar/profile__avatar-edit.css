@@ -1,0 +1,9 @@
+.profile__avatar-edit {
+  margin: 0;
+  position: relative;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  display: flex;
+  overflow: hidden;
+}
